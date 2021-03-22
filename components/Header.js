@@ -1,12 +1,5 @@
 import Link from 'next/link';
 import styles from './header.module.css'
-const linkStyle ={
-    marginRight:"5%",
-    marginLeft:"5%",
-    textDecoration:"none",
-    fontWeight:'bold',
-    fontColor:'black',
-};
 
 
 const Header = () => (
@@ -14,8 +7,8 @@ const Header = () => (
         <div className={styles.header_left}>
             
             <div className={styles.top_button}>
-            <Link href="/">
-                <a style={linkStyle}>
+            <Link className={styles.link_text} href="/">
+                <a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitch" viewBox="0 0 16 16">
                         <path d="M3.857 0L1 2.857v10.286h3.429V16l2.857-2.857H9.57L14.714 8V0H3.857zm9.714 7.429l-2.285 2.285H9l-2 2v-2H4.429V1.143h9.142v6.286z"/>
                         <path d="M11.857 3.143h-1.143V6.57h1.143V3.143zm-3.143 0H7.571V6.57h1.143V3.143z"/>
@@ -26,26 +19,32 @@ const Header = () => (
             </div>
             <div className={styles.header_divider}>
             <Link href="/search">
-                <a style={linkStyle}>탐색</a>
+                <a className={styles.link_text}>탐색</a>
             </Link>
             </div>
 
             <div className={styles.top_button}>
             <Link href="/esports">
-                <a style={linkStyle}>e스포츠</a>
+                <a className={styles.link_text}>e스포츠</a>
             </Link>
             </div>
 
             <div className={styles.top_button}>
             <Link href="/music">
-                <a style={linkStyle}>음악</a>
+                <a className={styles.link_text}>음악</a>
             </Link>
             </div>
         </div>
 
 
         <div className={styles.header_middle}>
-            <input className={styles.header_searchbox} placeholder="검색">
+            <datalist className={styles.datalist} id="streamers">
+            <option value="소니쇼"/>
+            <option value="서새봄"/>
+            <option value="풍월량"/>
+            <option value="김도"/>
+            </datalist>
+            <input className={styles.header_searchbox} placeholder="검색" list="streamers">
 
             </input>
             <button className={styles.header_searchbutton}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
